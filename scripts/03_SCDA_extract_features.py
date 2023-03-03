@@ -15,10 +15,6 @@ import pandas as pd
 import numpy as np
 import os
 import sys
-sys.path.insert(0, '../')
-
-
-# https://github.com/bearpaw/pytorch-classification
 
 np.random.seed(0)
 torch.manual_seed(0)
@@ -246,19 +242,19 @@ models = {
     "cifar10_resnet": {
         "model_class": ResNet,
         "parms": {"num_classes": 10, "depth": 164, "block_name": "bottleNeck"},
-        "path": "../models/cifar10_resnet.pth.tar"
+        "path": "./models/cifar10_resnet.pth.tar"
     },
 
     "cifar10_wrn": {
         "model_class": WideResNet,
         "parms": {"num_classes": 10, "depth": 28, "widen_factor": 10, "dropRate": 0.3},
-        "path": "../models/cifar10_wrn.pth.tar"
+        "path": "./models/cifar10_wrn.pth.tar"
     },
 
     "cifar10_densenet": {
         "model_class": DenseNet,
         "parms": {"num_classes": 10, "depth": 190, "growthRate": 40},
-        "path": "../models/cifar10_densenet.pth.tar"
+        "path": "./models/cifar10_densenet.pth.tar"
     }
 }
 
@@ -269,7 +265,7 @@ def run():
         model = load_model(**model_info)
         for loader_name, loader in loaders.items():
             print(">>>", loader_name)
-            path = "../features/scda/{}/{}".format(model_name, loader_name)
+            path = "./features/scda/{}/{}".format(model_name, loader_name)
             df = get_df(model, loader)
             save_df(path, df)
             print(">>>>>> Saved:", path)
@@ -277,7 +273,7 @@ def run():
 
 
 def run_attacks():
-    _path = "../attacked_images"
+    _path = "./attacked_images"
     for model_name, model_info in models.items():
         print("\n", model_name)
         model = load_model(**model_info)
@@ -295,7 +291,7 @@ def run_attacks():
                 _set, batch_size=batch_size, shuffle=False)
 
             print(">>>", method_name)
-            path = "../features/scda/{}/{}".format(model_name, method_name)
+            path = "./features/scda/{}/{}".format(model_name, method_name)
             df = get_df(model, _loader)
             save_df(path, df)
             print(">>>>>> Saved:", path)

@@ -1,0 +1,15 @@
+1. For basic experiments:
+
+a) Download proper models from https://github.com/bearpaw/pytorch-classification into ./models/:
+- "./models/cifar10_resnet.pth.tar"
+- "./models/cifar10_wrn.pth.tar"
+- "./models/cifar10_densenet.pth.tar"
+
+2. For additional experiments (dentoed as extra_*):
+
+a) Downolad datasets:
+- tiny-imagenet: "./datasets/tiny-imagenet-200/train/
+- ImageNet-O: "./datasets/ImageNet-O/"
+- textures "./datasets/textures/dtd/images/"
+
+b) download (or train from scratch as we did) proper models from https://github.com/bearpaw/pytorch-classification into "./extra_models/cifar10_[model_name]/__model.ckpt" or "./extra_models/cifar100_[model_name]/__model.ckpt"

@@ -18,7 +18,7 @@ torch.manual_seed(0)
 random.seed(0)
 
 files_to_process = []
-main_folder = "../features/"
+main_folder = "./features/"
 method_folders = [
     os.path.join(
         main_folder,
@@ -120,9 +120,6 @@ def run(white_list, if_attacks=False):
                     continue
 
                 df = pd.read_pickle("{}/{}".format(path, file))
-                # if len(df.index) != len(test_df.index):
-                #    print("\t\t\t > len(unknown) != len(test)")
-                #    continue
 
                 directory = os.path.dirname(result_path)
                 Path(directory).mkdir(parents=True, exist_ok=True)

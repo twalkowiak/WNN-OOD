@@ -10,10 +10,6 @@ import random
 import numpy as np
 import os
 import sys
-sys.path.insert(0, '../')
-
-
-# https://github.com/bearpaw/pytorch-classification
 
 np.random.seed(0)
 torch.manual_seed(0)
@@ -22,7 +18,7 @@ random.seed(0)
 os.environ["CUDA_VISIBLE_DEVICES"] = str(0)
 device = torch.device("cuda:0")
 
-dataset_path = "../datasets/"
+dataset_path = "./datasets/"
 batch_size = 64
 
 cifar_normalize_mean = (0.4914, 0.4822, 0.4465)
@@ -72,17 +68,17 @@ cifar10_test_loader = torch.utils.data.DataLoader(
 
 cifar10_resnet = load_model(
     ResNet, {"num_classes": 10, "depth": 164,
-             "block_name": "bottleNeck"}, "../models/cifar10_resnet.pth.tar"
+             "block_name": "bottleNeck"}, "./models/cifar10_resnet.pth.tar"
 )
 
 cifar10_wrn = load_model(
     WideResNet, {"num_classes": 10, "depth": 28, "widen_factor": 10,
-                 "dropRate": 0.3}, "../models/cifar10_wrn.pth.tar"
+                 "dropRate": 0.3}, "./models/cifar10_wrn.pth.tar"
 )
 
 cifar10_densenet = load_model(
     DenseNet, {"num_classes": 10, "depth": 190,
-               "growthRate": 40}, "../models/cifar10_densenet.pth.tar"
+               "growthRate": 40}, "./models/cifar10_densenet.pth.tar"
 )
 
 print("---CIFAR-10---")
